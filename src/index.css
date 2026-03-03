@@ -1,0 +1,19 @@
+:root {
+  --violet: #7c3aed; --vl: #a855f7; --vg: #c084fc; --vd: #4c1d95;
+  --pink: #ec4899; --cyan: #22d3ee;
+  --bg: #0d0a1a; --s1: #1a1030; --s2: #241848;
+  --text: #f0e6ff; --dim: #9d7bca;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh; overflow-x: hidden;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124,58,237,.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168,85,247,.1) 0%, transparent 40%);
+  pointer-events: none; z-index: 0;
+}

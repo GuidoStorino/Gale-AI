@@ -1,0 +1,35 @@
+.rsvg { width:100%; height:100%; filter:drop-shadow(0 0 18px rgba(124,58,237,.6)); transition:filter .3s; }
+.rsvg.tk { animation: rglow .5s ease-in-out infinite alternate; }
+@keyframes rglow {
+  from { filter: drop-shadow(0 0 18px rgba(192,132,252,.7)) drop-shadow(0 0 36px rgba(124,58,237,.4)); }
+  to   { filter: drop-shadow(0 0 36px rgba(192,132,252,1)) drop-shadow(0 0 70px rgba(124,58,237,.7)); }
+}
+.rbg { transform-origin: center bottom; animation: ifloat 3s ease-in-out infinite; }
+@keyframes ifloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+.rsvg.tk .rbg { animation: tbounce .4s ease-in-out infinite; }
+@keyframes tbounce { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-8px) rotate(1deg)} }
+.al { transform-origin:70px 160px; animation:ali 3s ease-in-out infinite; }
+.ar { transform-origin:210px 160px; animation:ari 3s ease-in-out infinite; }
+@keyframes ali  { 0%,100%{transform:rotate(5deg)}  50%{transform:rotate(-5deg)}  }
+@keyframes ari  { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)}   }
+.rsvg.tk .al { animation: alt .4s ease-in-out infinite; }
+.rsvg.tk .ar { animation: art .4s ease-in-out infinite; }
+@keyframes alt { 0%,100%{transform:rotate(15deg)}  50%{transform:rotate(-15deg)} }
+@keyframes art { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(10deg)}  }
+.ep { animation: elook 4s ease-in-out infinite; }
+@keyframes elook { 0%,40%,100%{transform:translate(0,0)} 50%,90%{transform:translate(2px,1px)} }
+.eb { animation: ebl 4s ease-in-out infinite; transform-origin: center; }
+@keyframes ebl { 0%,48%,52%,100%{transform:scaleY(1)} 50%{transform:scaleY(.1)} }
+.mi { display: block; } .mt { display: none; }
+.rsvg.tk .mi { display: none; }
+.rsvg.tk .mt { display: block; animation: mopen .3s ease-in-out infinite alternate; transform-origin: 140px 128px; }
+@keyframes mopen { from{transform:scaleY(.5)} to{transform:scaleY(1.2)} }
+.ant { animation: apulse 1.5s ease-in-out infinite; }
+@keyframes apulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.rsvg.tk .ant { animation: atalk .3s ease-in-out infinite; }
+@keyframes atalk { 0%,100%{fill:#22d3ee} 50%{fill:#fff} }
+.vh { transform-origin: 140px 290px; }
+.rsvg.tk .vh { animation: vspin 2s linear infinite; }
+@keyframes vspin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.scl { animation: sscroll 2s linear infinite; }
+@keyframes sscroll { from{transform:translateX(0)} to{transform:translateX(-30px)} }
