@@ -1,35 +1,144 @@
-.rsvg { width:100%; height:100%; filter:drop-shadow(0 0 18px rgba(124,58,237,.6)); transition:filter .3s; }
-.rsvg.tk { animation: rglow .5s ease-in-out infinite alternate; }
-@keyframes rglow {
-  from { filter: drop-shadow(0 0 18px rgba(192,132,252,.7)) drop-shadow(0 0 36px rgba(124,58,237,.4)); }
-  to   { filter: drop-shadow(0 0 36px rgba(192,132,252,1)) drop-shadow(0 0 70px rgba(124,58,237,.7)); }
+/* ════════════════════════════════════
+   GALE-AI · Robot PNG + Animaciones
+   ════════════════════════════════════ */
+
+.robot-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.rbg { transform-origin: center bottom; animation: ifloat 3s ease-in-out infinite; }
-@keyframes ifloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-.rsvg.tk .rbg { animation: tbounce .4s ease-in-out infinite; }
-@keyframes tbounce { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-8px) rotate(1deg)} }
-.al { transform-origin:70px 160px; animation:ali 3s ease-in-out infinite; }
-.ar { transform-origin:210px 160px; animation:ari 3s ease-in-out infinite; }
-@keyframes ali  { 0%,100%{transform:rotate(5deg)}  50%{transform:rotate(-5deg)}  }
-@keyframes ari  { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)}   }
-.rsvg.tk .al { animation: alt .4s ease-in-out infinite; }
-.rsvg.tk .ar { animation: art .4s ease-in-out infinite; }
-@keyframes alt { 0%,100%{transform:rotate(15deg)}  50%{transform:rotate(-15deg)} }
-@keyframes art { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(10deg)}  }
-.ep { animation: elook 4s ease-in-out infinite; }
-@keyframes elook { 0%,40%,100%{transform:translate(0,0)} 50%,90%{transform:translate(2px,1px)} }
-.eb { animation: ebl 4s ease-in-out infinite; transform-origin: center; }
-@keyframes ebl { 0%,48%,52%,100%{transform:scaleY(1)} 50%{transform:scaleY(.1)} }
-.mi { display: block; } .mt { display: none; }
-.rsvg.tk .mi { display: none; }
-.rsvg.tk .mt { display: block; animation: mopen .3s ease-in-out infinite alternate; transform-origin: 140px 128px; }
-@keyframes mopen { from{transform:scaleY(.5)} to{transform:scaleY(1.2)} }
-.ant { animation: apulse 1.5s ease-in-out infinite; }
-@keyframes apulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-.rsvg.tk .ant { animation: atalk .3s ease-in-out infinite; }
-@keyframes atalk { 0%,100%{fill:#22d3ee} 50%{fill:#fff} }
-.vh { transform-origin: 140px 290px; }
-.rsvg.tk .vh { animation: vspin 2s linear infinite; }
-@keyframes vspin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
-.scl { animation: sscroll 2s linear infinite; }
-@keyframes sscroll { from{transform:translateX(0)} to{transform:translateX(-30px)} }
+
+/* ── Imagen principal ── */
+.robot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  animation: rfloat 3.8s ease-in-out infinite;
+  filter: drop-shadow(0 12px 32px rgba(168,85,247,0.5))
+          drop-shadow(0 0 16px rgba(232,121,249,0.2));
+  transition: filter 0.4s ease;
+  /* Fondo blanco → transparente */
+  mix-blend-mode: multiply;
+}
+
+/* ── Flotación idle ── */
+@keyframes rfloat {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  25%      { transform: translateY(-8px) rotate(0.8deg); }
+  75%      { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+/* ── Hablando: bounce + glow iridiscente ── */
+/* DESPUÉS */
+.robot-wrapper.tk .robot-img {
+  animation: rtalk 0.9s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 20px rgba(232,121,249,0.8))
+    drop-shadow(0 0 45px rgba(168,85,247,0.65))
+    drop-shadow(0 0 80px rgba(56,189,248,0.35));
+}
+
+/* DESPUÉS */
+@keyframes rtalk {
+  0%,100% { transform: translateY(0px)  rotate(-0.4deg); }
+  50%      { transform: translateY(-4px) rotate(0.4deg);  }
+
+}
+
+/* ── Halo de fondo ── */
+.robot-halo {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(168,85,247,0.18) 0%,
+    rgba(56,189,248,0.08) 50%,
+    transparent 75%
+  );
+  z-index: 1;
+  animation: halobreathing 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes halobreathing {
+  0%,100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.12); }
+}
+.robot-wrapper.tk .robot-halo {
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(232,121,249,0.35) 0%,
+    rgba(168,85,247,0.2)  35%,
+    rgba(56,189,248,0.1)  65%,
+    transparent 80%
+  );
+  animation: halotalk 0.55s ease-in-out infinite alternate;
+}
+@keyframes halotalk {
+  from { opacity: 0.7; transform: scale(0.95); }
+  to   { opacity: 1;   transform: scale(1.18); }
+}
+
+/* ── Overlay de la boca ── */
+.mouth-overlay {
+  position: absolute;
+  /* Posición ajustada a donde está la boca en la imagen */
+  bottom: 55%;
+  left: 51%;
+  transform: translateX(-50%);
+  width: 13%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0; /* oculta por defecto — la imagen ya tiene boca */
+}
+
+/* Cuando habla: mostramos la boca animada sobre la imagen */
+.mouth-overlay.talking {
+  opacity: 1;
+}
+
+.m-smile { display: none; } /* la imagen ya tiene la sonrisa */
+.m-open  { display: none; }
+
+.mouth-overlay.talking .m-open {
+  display: block;
+  transform-origin: 30px 13px;
+  animation: mopen 0.38s ease-in-out infinite alternate;
+}
+@keyframes mopen {
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1.2); }
+}
+
+/* ── Partículas de energía ── */
+.energy-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ep {
+  position: absolute;
+  border-radius: 50%;
+  animation: epfloat linear infinite;
+}
+
+.ep-0 { width:6px;  height:6px;  background:#e879f9; bottom:20%; left:15%; animation-duration:1.2s; animation-delay:0s;    }
+.ep-1 { width:4px;  height:4px;  background:#38bdf8; bottom:30%; left:80%; animation-duration:1.5s; animation-delay:0.2s;  }
+.ep-2 { width:5px;  height:5px;  background:#a855f7; bottom:15%; left:50%; animation-duration:1.0s; animation-delay:0.4s;  }
+.ep-3 { width:3px;  height:3px;  background:#f472b6; bottom:40%; left:25%; animation-duration:1.8s; animation-delay:0.1s;  }
+.ep-4 { width:5px;  height:5px;  background:#818cf8; bottom:25%; left:65%; animation-duration:1.3s; animation-delay:0.3s;  }
+.ep-5 { width:4px;  height:4px;  background:#22d3ee; bottom:35%; left:40%; animation-duration:1.6s; animation-delay:0.5s;  }
+
+@keyframes epfloat {
+  0%   { transform: translateY(0)    scale(1);   opacity: 0;   }
+  15%  { opacity: 0.9; }
+  80%  { opacity: 0.5; }
+  100% { transform: translateY(-55px) scale(0.4); opacity: 0; }
+}

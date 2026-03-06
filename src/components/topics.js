@@ -9,7 +9,7 @@ export const TOPICS = [
   },
   {
     id: 'historia', label: 'Historia', icon: '📖', color: '#a855f7',
-    script: `Prepárate para un viaje en el tiempo! La historia del gas comienza en mil setecientos noventa y dos cuando William Murdoch usó gas de carbón para iluminar su casa en Inglaterra. En Argentina, el gas llegó en mil ochocientos cincuenta y tres en Buenos Aires. En mil novecientos cuarenta y cinco se creó Gas del Estado. En mil novecientos cuarenta y nueve se inauguró el primer gasoducto de América Latina! Hoy tenemos más de setenta mil kilómetros de red. Una historia gloriosa!`,
+    script: `Somos una empresa líder en nuestro rubro que hace más de treinta años se dedica al negocio del gas. Nuestro objetivo principal es lanzar al mercado un producto de excelencia a precios competitivos. Para eso, motivamos y capacitamos a todo nuestro personal, interpretamos la demanda, y buscamos una mejora continua. Nuestros productos cumplen con los protocolos más exigentes dentro de la cadena de valor, desde la fundición de los metales no ferrosos hasta la implementación de componentes aportados por proveedores argentinos. `,
   },
   {
     id: 'fabricacion', label: 'Fabricación', icon: '🏭', color: '#ec4899',
