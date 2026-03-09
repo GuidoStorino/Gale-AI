@@ -4,6 +4,7 @@ import RobotSVG from './components/RobotSVG'
 import TopicButton from './components/TopicButton'
 import DialogueBox from './components/DialogueBox'
 import Particles from './components/Particles'
+import ChatBox from './components/ChatBox'
 
 export default function App() {
   const [activeTopic, setActiveTopic] = useState(null)
@@ -134,13 +135,10 @@ export default function App() {
           </div>
 
           {/* Dialogue */}
-          <DialogueBox
-            text={text} typing={typing} speaking={speaking}
-            recording={recording} progress={progress}
-            activeTopic={activeTopic} dlReady={dlReady}
-            onStop={stopAll} onRepeat={() => activeTopic && handleTopic(activeTopic)}
-            onDownload={handleDownload}
-          />
+          <ChatBox
+  onSpeakingChange={(val) => setSpeaking(val)}
+  onNewMessage={() => {}}
+/>
         </div>
       </div>
     </>
