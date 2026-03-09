@@ -68,7 +68,8 @@ PRODUCTOS DE GALEA LG:
 - Ventaja: especial para instalaciones actuales, compatible con cualquier tamaño de nicho, viene con flexible incluido
 - Fabricado bajo normas N.A.G. 235, aprobado por el Instituto del Gas Argentino
 
-**GN2E-6** — Regulador para Gas Natural
+**GN2E-6** — Regulador de DOS ETAPAS para Gas Natural
+- Es un regulador de dos etapas (la "2E" indica las dos etapas de regulación)
 - Presión entrada: 0,5 a 4 bar | Salida: 19 mbar | Caudal: 6 m³/h
 - Conexiones tipo ½ Unión (entrada ¾" x 14 IRAM 5063 esfero cónica, salida 1 1/4" x 11 IRAM 5063 junta plana)
 - Filtro de entrada incluido
@@ -76,7 +77,8 @@ PRODUCTOS DE GALEA LG:
 - Dispositivos de seguridad: venteo restringido por alta presión (35-50 mbar, reposición automática), corte por baja presión (11-15 mbar, reposición manual), corte por exceso de caudal
 - Fabricado bajo Normas NAG 235 Año 2019
 
-**GN2E-10** — Regulador para Gas Natural
+**GN2E-10** — Regulador de DOS ETAPAS para Gas Natural
+- Es un regulador de dos etapas (la "2E" indica las dos etapas de regulación)
 - Igual al GN2E-6 pero con caudal de 10 m³/h — ideal para instalaciones de mayor consumo
 - Fabricado bajo Normas NAG 235 Año 2019
 
